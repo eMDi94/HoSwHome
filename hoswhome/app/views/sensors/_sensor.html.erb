@@ -1,0 +1,11 @@
+<%= turbo_frame_tag dom_id(sensor) do %>
+  <div class="flex justify-between mt-4">
+    <%= link_to sensor.to_s, sensor_path(sensor), class: 'py-3' %>
+
+    <div class="flex">
+      <%= button_to t('commons.view'), sensor_path(sensor), method: :get, class: 'rounded-md px-2 py-3 text-center text-white font-bold bg-teal-500 hover:bg-teal-300 mr-1', form: { data: { turbo_frame: '_top' } } %>
+      <%= button_to t('commons.delete'), sensor_path(sensor), method: :delete, class: 'rounded-md px-2 py-3 text-center text-white font-bold bg-red-500 hover:bg-red-300 mr-1', form: { data: { turbo_frame: '_top' }}%>
+      <%= button_to t('commons.edit'), edit_sensor_path(sensor), method: :get, class: 'rounded-md px-2 py-3 text-center text-white font-bold bg-teal-500 hover:bg-teal-300' %>
+    </div>
+  </div>
+<% end %>

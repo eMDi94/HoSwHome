@@ -1,0 +1,18 @@
+<%= content_for :title do %>
+  Sensori
+<% end %>
+
+<div class="w-full">
+  <div class="flex justify-between">
+    <h1 class="font-bold text-4xl"><%= t('sensors.index.title') %></h1>
+    <%= link_to t('sensors.index.new'), new_sensor_path, class: 'px-10 py-3 text-center rounded-md bg-teal-500 text-white font-bold hover:bg-teal-300', data: { turbo_frame: dom_id(Sensor.new) } %>
+  </div>
+
+  <%= turbo_frame_tag Sensor.new %>
+
+  <div class="mt-8">
+    <%= turbo_frame_tag "sensors" do %>
+      <%= render @sensors %>
+    <% end %>
+  </div>
+</div>
